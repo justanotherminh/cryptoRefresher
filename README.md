@@ -1,6 +1,29 @@
-# Crypto-from-scratch: implementation plan
+# cryptoRefresher
 
-A spec for building the core primitives in pure Python. Purpose is refreshing theory after five years away, not producing usable code.
+Core cryptographic primitives built from scratch in pure Python, one stage at a time. The goal is to refresh the theory after five years away. The code is not meant to be used for anything real.
+
+> **Not production code.** It has no constant-time guarantees, no side-channel resistance, and no memory hygiene. Do not use any of it to protect real data.
+
+## Running
+
+Requires Python 3 and nothing beyond the standard library. Each module checks itself against official test vectors when run directly:
+
+```sh
+python3 gf.py
+```
+
+## Progress
+
+- [x] 1. `gf.py` — GF(2⁸) finite field arithmetic
+- [ ] 2. `aes.py` — AES block cipher
+- [ ] 3. `gcm.py` — CTR mode and GHASH
+- [ ] 4. `mac.py` — HMAC and HKDF
+- [ ] 5. `primes.py` — primality testing and prime generation
+- [ ] 6. `rsa.py` — RSA with OAEP and PSS
+- [ ] 7. `ec.py` — P-256 elliptic curve arithmetic
+- [ ] 8. `ecdsa.py` — ECDSA with random and RFC 6979 deterministic `k`
+
+The rest of this document is the implementation plan the code follows.
 
 ## Ground rules
 
